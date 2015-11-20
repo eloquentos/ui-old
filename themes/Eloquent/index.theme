@@ -1,12 +1,11 @@
 [Desktop Entry]
 Type=X-GNOME-Metatheme
-Name=Xenlism Minimalism
-Comment=A Minimalism themes, base On Arc Theme.
+Name=Eloquent UI
+Comment=Eloquent OS User Interface
 Encoding=UTF-8
 
 [X-GNOME-Metatheme]
-GtkTheme=Xenlism-Minimalism
-MetacityTheme=Xenlism-Minimalism
-IconTheme=Xenlism-Wildfire
-CursorTheme=DMZ-Black
+GtkTheme=Eloquent
+MetacityTheme=Eloquent
+IconTheme=Eloquent
 ButtonLayout=close,minimize,maximize:menu;
