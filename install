@@ -3,7 +3,6 @@
 USRTHEMESDIR="/usr/share/themes";
 
 function install_pkg {
-	cd ..;
 	SOURCEDIR=$(pwd);
 	if [ -d $SOURCEDIR ]
 	then
