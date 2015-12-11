@@ -75,8 +75,6 @@ if ENABLE_METACITY
 
 if ENABLE_LIGHT
 	cp -r --no-preserve=mode,ownership $(srcdir)/metacity-1 $(ithemedir)
-
-	cd $(ithemedir)/metacity-1 && rm metacity-theme-1-dark.xml metacity-theme-2-dark.xml
 endif # ENABLE_LIGHT
 endif # ENABLE_METACITY
 
@@ -87,6 +85,4 @@ EXTRA_DIST = $(srcdir)/gnome-shell \
 	     $(srcdir)/gtk-2.0 \
 	     $(srcdir)/gtk-3.0 \
 	     $(srcdir)/metacity-1 \
-	     $(srcdir)/index.theme \
-	     $(srcdir)/index.theme-darker \
-	     $(srcdir)/index.theme-dark
+	     $(srcdir)/index.theme
