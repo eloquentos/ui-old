@@ -11,16 +11,6 @@ if ENABLE_LIGHT
 	cp --no-preserve=mode,ownership $(srcdir)/index.theme $(ithemedir)
 endif # ENABLE_LIGHT
 
-if ENABLE_DARKER
-	$(MKDIR_P) $(ithemedarkerdir)
-	cp --no-preserve=mode,ownership $(srcdir)/index.theme-darker $(ithemedarkerdir)/index.theme
-endif # ENABLE_LIGHT
-
-if ENABLE_DARK
-	$(MKDIR_P) $(ithemedarkdir)
-	cp --no-preserve=mode,ownership $(srcdir)/index.theme-dark $(ithemedarkdir)/index.theme
-endif # ENABLE_DARK
-
 
 if ENABLE_GNOME_SHELL
 	$(MKDIR_P) $(ithemedir)/gnome-shell
@@ -30,19 +20,6 @@ if ENABLE_GNOME_SHELL
 		light-assets \
 		gnome-shell.css \
 		$(ithemedir)/gnome-shell
-
-if ENABLE_DARK
-	$(MKDIR_P) $(ithemedarkdir)/gnome-shell
-
-	cd $(srcdir)/gnome-shell/$(GNOME_VERSION) && cp -r --no-preserve=mode,ownership \
-		common-assets \
-		dark-assets \
-		$(ithemedarkdir)/gnome-shell
-
-	cd $(srcdir)/gnome-shell/$(GNOME_VERSION) && cp -r --no-preserve=mode,ownership \
-		gnome-shell-dark.css \
-		$(ithemedarkdir)/gnome-shell/gnome-shell.css
-endif # ENABLE_DARK
 
 endif # ENABLE_GNOME_SHELL
 
@@ -59,37 +36,6 @@ if ENABLE_LIGHT
 		gtkrc \
 		$(ithemedir)/gtk-2.0
 endif # ENABLE_LIGHT
-
-if ENABLE_DARKER
-	$(MKDIR_P) $(ithemedarkerdir)/gtk-2.0
-
-	cd $(srcdir)/gtk-2.0 && cp -r --no-preserve=mode,ownership \
-		assets \
-		menubar-toolbar \
-		*.rc \
-		$(ithemedarkerdir)/gtk-2.0
-
-	cd $(srcdir)/gtk-2.0 && cp -r --no-preserve=mode,ownership \
-		gtkrc-darker \
-		$(ithemedarkerdir)/gtk-2.0/gtkrc
-endif # ENABLE_DARKER
-
-if ENABLE_DARK
-	$(MKDIR_P) $(ithemedarkdir)/gtk-2.0
-
-	cd $(srcdir)/gtk-2.0 && cp -r --no-preserve=mode,ownership \
-		menubar-toolbar \
-		*.rc \
-		$(ithemedarkdir)/gtk-2.0
-
-	cd $(srcdir)/gtk-2.0 && cp -r --no-preserve=mode,ownership \
-		assets-dark \
-		$(ithemedarkdir)/gtk-2.0/assets
-
-	cd $(srcdir)/gtk-2.0 && cp -r --no-preserve=mode,ownership \
-		gtkrc-dark \
-		$(ithemedarkdir)/gtk-2.0/gtkrc
-endif # ENABLE_DARK
 
 endif # ENABLE_GTK2
 
@@ -108,34 +54,6 @@ if ENABLE_LIGHT
 		$(ithemedir)/gtk-3.0
 endif # ENABLE_LIGHT
 
-if ENABLE_DARKER
-	$(MKDIR_P) $(ithemedarkerdir)/gtk-3.0
-
-	cd $(srcdir)/gtk-3.0/$(GNOME_VERSION) && cp -r --no-preserve=mode,ownership \
-		assets \
-		gtk.css \
-		gtk-dark.css \
-		gtk-contained-dark.css \
-		$(ithemedarkerdir)/gtk-3.0
-
-	cd $(srcdir)/gtk-3.0/$(GNOME_VERSION) && cp -r --no-preserve=mode,ownership \
-		gtk-contained-darker.css \
-		$(ithemedarkerdir)/gtk-3.0/gtk-contained.css
-endif # ENABLE_DARKER
-
-if ENABLE_DARK
-	$(MKDIR_P) $(ithemedarkdir)/gtk-3.0
-
-	cd $(srcdir)/gtk-3.0/$(GNOME_VERSION) && cp -r --no-preserve=mode,ownership \
-		assets \
-		gtk.css \
-		$(ithemedarkdir)/gtk-3.0
-
-	cd $(srcdir)/gtk-3.0/$(GNOME_VERSION) && cp -r --no-preserve=mode,ownership \
-		gtk-contained-dark.css \
-		$(ithemedarkdir)/gtk-3.0/gtk-contained.css
-endif # ENABLE_DARK
-
 if !ENABLE_TRANSPARENCY
 
 if ENABLE_LIGHT
@@ -147,22 +65,6 @@ if ENABLE_LIGHT
 		gtk-contained-solid-dark.css \
 		$(ithemedir)/gtk-3.0/gtk-contained-dark.css
 endif # ENABLE_LIGHT
-
-if ENABLE_DARKER
-	cd $(srcdir)/gtk-3.0/$(GNOME_VERSION) && cp -r --no-preserve=mode,ownership \
-		gtk-contained-solid-darker.css \
-		$(ithemedarkerdir)/gtk-3.0/gtk-contained.css
-
-	cd $(srcdir)/gtk-3.0/$(GNOME_VERSION) && cp -r --no-preserve=mode,ownership \
-		gtk-contained-solid-dark.css \
-		$(ithemedarkerdir)/gtk-3.0/gtk-contained-dark.css
-endif # ENABLE_DARKER
-
-if ENABLE_DARK
-	cd $(srcdir)/gtk-3.0/$(GNOME_VERSION) && cp -r --no-preserve=mode,ownership \
-		gtk-contained-solid-dark.css \
-		$(ithemedarkdir)/gtk-3.0/gtk-contained.css
-endif # ENABLE_DARK
 
 endif #!ENABLE_TRANSPARENCY
 
@@ -176,36 +78,10 @@ if ENABLE_LIGHT
 
 	cd $(ithemedir)/metacity-1 && rm metacity-theme-1-dark.xml metacity-theme-2-dark.xml
 endif # ENABLE_LIGHT
-
-if ENABLE_DARKER
-	cp -r --no-preserve=mode,ownership $(srcdir)/metacity-1 $(ithemedarkerdir)
-
-	cd $(ithemedarkerdir)/metacity-1 && \
-		mv metacity-theme-1-dark.xml metacity-theme-1.xml && \
-		mv metacity-theme-2-dark.xml metacity-theme-2.xml
-endif # ENABLE_DARKER
-
-if ENABLE_DARK
-	cp -r --no-preserve=mode,ownership $(srcdir)/metacity-1 $(ithemedarkdir)
-
-	cd $(ithemedarkdir)/metacity-1 && \
-		mv metacity-theme-1-dark.xml metacity-theme-1.xml && \
-		mv metacity-theme-2-dark.xml metacity-theme-2.xml
-endif # ENABLE_DARK
-
 endif # ENABLE_METACITY
 
 uninstall-local:
 	rm -rf $(ithemedir)
-
-if ENABLE_DARKER
-	rm -rf $(ithemedarkerdir)
-endif # ENABLE_DARKER
-
-if ENABLE_DARK
-	rm -rf $(ithemedarkdir)
-endif # ENABLE_DARK
-
 
 EXTRA_DIST = $(srcdir)/gnome-shell \
 	     $(srcdir)/gtk-2.0 \
