@@ -195,57 +195,6 @@ endif # ENABLE_DARK
 
 endif # ENABLE_METACITY
 
-
-if ENABLE_UNITY
-
-if ENABLE_LIGHT
-	cp -r --no-preserve=mode,ownership $(srcdir)/unity $(ithemedir)
-
-	cd $(ithemedir)/unity && rm -rf window-buttons-dark
-endif # ENABLE_LIGHT
-
-if ENABLE_DARKER
-	cp -r --no-preserve=mode,ownership $(srcdir)/unity $(ithemedarkerdir)
-
-	cd $(ithemedarkerdir)/unity && \
-	rm -rf window-buttons && \
-	mv window-buttons-dark window-buttons
-endif # ENABLE_DARKER
-
-if ENABLE_DARK
-	cp -r --no-preserve=mode,ownership $(srcdir)/unity $(ithemedarkdir)
-
-	cd $(ithemedarkdir)/unity && \
-	rm -rf window-buttons && \
-	mv window-buttons-dark window-buttons
-endif # ENABLE_DARK
-
-endif # ENABLE_UNITY
-
-
-if ENABLE_XFCE_NOTIFY
-	$(MKDIR_P) $(ithemedir)
-	cp -r --no-preserve=mode,ownership $(srcdir)/xfce-notify-4.0 $(ithemedir)
-endif # ENABLE_XFCE_NOTIFY
-
-
-if ENABLE_XFWM
-
-if ENABLE_LIGHT
-	cp -r --no-preserve=mode,ownership $(srcdir)/xfwm4 $(ithemedir)
-endif # ENABLE_LIGHT
-
-if ENABLE_DARKER
-	cp -r --no-preserve=mode,ownership $(srcdir)/xfwm4-dark $(ithemedarkerdir)/xfwm4
-endif # ENABLE_DARKER
-
-if ENABLE_DARK
-	cp -r --no-preserve=mode,ownership $(srcdir)/xfwm4-dark $(ithemedarkdir)/xfwm4
-endif # ENABLE_DARK
-
-endif # ENABLE_XFWM
-
-
 uninstall-local:
 	rm -rf $(ithemedir)
 
@@ -262,10 +211,6 @@ EXTRA_DIST = $(srcdir)/gnome-shell \
 	     $(srcdir)/gtk-2.0 \
 	     $(srcdir)/gtk-3.0 \
 	     $(srcdir)/metacity-1 \
-	     $(srcdir)/unity \
-	     $(srcdir)/xfce-notify-4.0 \
-	     $(srcdir)/xfwm4 \
-	     $(srcdir)/xfwm4-dark \
 	     $(srcdir)/index.theme \
 	     $(srcdir)/index.theme-darker \
 	     $(srcdir)/index.theme-dark
