@@ -1,4 +1,4 @@
-themedir        = $(datadir)/themes/Arc
+themedir        = $(datadir)/themes/Eloquent
 
 ithemedir       = $(DESTDIR)$(themedir)
 

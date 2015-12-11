@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <metacity_theme>
 <info>
-	<name>Arc</name>
+	<name>Eloquent</name>
 	<author>horst3180</author>
 	<copyright>horst3180</copyright>
 	<date>2015</date>
-	<description>Arc Metacity theme</description>
+	<description>Eloquent Metacity theme</description>
 </info>
 
 <!-- meaningfull constants -->
@@ -61,7 +61,7 @@
 	<distance name="right_width" value="0" />
 	<distance name="left_titlebar_edge" value="0"/>
 	<distance name="right_titlebar_edge" value="0"/>
-	<distance name="title_vertical_pad" value="2"/> <!-- 
+	<distance name="title_vertical_pad" value="2"/> <!--
 							This needs to be 1 less then the
 							title_vertical_pad on normal state
 							or you'll have bigger buttons		-->
