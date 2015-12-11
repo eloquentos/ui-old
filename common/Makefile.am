@@ -1,10 +1,6 @@
 themedir        = $(datadir)/themes/Arc
-themedarkerdir  = $(datadir)/themes/Arc-Darker
-themedarkdir    = $(datadir)/themes/Arc-Dark
 
 ithemedir       = $(DESTDIR)$(themedir)
-ithemedarkerdir   = $(DESTDIR)$(themedarkerdir)
-ithemedarkdir  = $(DESTDIR)$(themedarkdir)
 
 install-exec-hook:
 
@@ -24,31 +20,6 @@ if ENABLE_DARK
 	$(MKDIR_P) $(ithemedarkdir)
 	cp --no-preserve=mode,ownership $(srcdir)/index.theme-dark $(ithemedarkdir)/index.theme
 endif # ENABLE_DARK
-
-
-if ENABLE_CINNAMON
-	$(MKDIR_P) $(ithemedir)/cinnamon
-
-	cd $(srcdir)/cinnamon && cp -r --no-preserve=mode,ownership \
-		common-assets \
-		light-assets \
-		cinnamon.css \
-		$(ithemedir)/cinnamon
-
-if ENABLE_DARK
-	$(MKDIR_P) $(ithemedarkdir)/cinnamon
-
-	cd $(srcdir)/cinnamon && cp -r --no-preserve=mode,ownership \
-		common-assets \
-		dark-assets \
-		$(ithemedarkdir)/cinnamon
-
-	cd $(srcdir)/cinnamon && cp -r --no-preserve=mode,ownership \
-		cinnamon-dark.css \
-		$(ithemedarkdir)/cinnamon/cinnamon.css
-endif # ENABLE_DARK
-
-endif # ENABLE_GNOME_SHELL
 
 
 if ENABLE_GNOME_SHELL
@@ -287,8 +258,7 @@ if ENABLE_DARK
 endif # ENABLE_DARK
 
 
-EXTRA_DIST = $(srcdir)/cinnamon \
-	     $(srcdir)/gnome-shell \
+EXTRA_DIST = $(srcdir)/gnome-shell \
 	     $(srcdir)/gtk-2.0 \
 	     $(srcdir)/gtk-3.0 \
 	     $(srcdir)/metacity-1 \
