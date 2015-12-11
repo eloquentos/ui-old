@@ -29,7 +29,6 @@ ARC_GNOME
 
 AC_CONFIG_FILES([
     common/Makefile
-    extra/Makefile
     Makefile
 ])
 
